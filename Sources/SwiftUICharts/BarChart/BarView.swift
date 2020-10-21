@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct BarChartView : View {
+public struct BarView : View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     private var data: ChartData
     public var title: String
@@ -49,7 +49,7 @@ public struct BarChartView : View {
         ZStack{
             Rectangle()
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
-                .cornerRadius(self.style.cornerRadius)
+                .cornerRadius(style.cornerRadius)
                 .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
             VStack(alignment: .leading){
                 HStack{
@@ -137,12 +137,17 @@ public struct BarChartView : View {
 }
 
 #if DEBUG
-struct ChartView_Previews : PreviewProvider {
+var style = ChartStyle(backgroundColor: Color.black.opacity(0.8), accentColor: Color.red, gradientColor: GradientColors.blu, textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: Color.black.opacity(0.1), cornerRadius: 10)
+
+struct BarChart_Previews : PreviewProvider {
+    
+ 
     static var previews: some View {
-        BarChartView(data: TestData.values ,
-                     title: "Model 3 sales",
-                     legend: "Quarterly",
+        VStack {
+            BarView(data: TestData.values ,
+                title: "Model 3 sales", legend: "Quarterly", style: style,
                      valueSpecifier: "%.0f")
+        }
     }
 }
 #endif

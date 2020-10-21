@@ -153,6 +153,8 @@ public class ChartStyle {
     public var textColor: Color
     public var legendTextColor: Color
     public var dropShadowColor: Color
+    public var cornerRadius: CGFloat = 20.0
+    public var dropShadowBlur: CGFloat = 3.0
     public weak var darkModeStyle: ChartStyle?
     
     public init(backgroundColor: Color, accentColor: Color, secondGradientColor: Color, textColor: Color, legendTextColor: Color, dropShadowColor: Color){
@@ -162,15 +164,18 @@ public class ChartStyle {
         self.textColor = textColor
         self.legendTextColor = legendTextColor
         self.dropShadowColor = dropShadowColor
+        
     }
     
-    public init(backgroundColor: Color, accentColor: Color, gradientColor: GradientColor, textColor: Color, legendTextColor: Color, dropShadowColor: Color){
+    public init(backgroundColor: Color, accentColor: Color, gradientColor: GradientColor, textColor: Color, legendTextColor: Color, dropShadowColor: Color, cornerRadius: CGFloat, dropShadowBlur: CGFloat){
         self.backgroundColor = backgroundColor
         self.accentColor = accentColor
+        self.cornerRadius = cornerRadius
         self.gradientColor = gradientColor
         self.textColor = textColor
         self.legendTextColor = legendTextColor
         self.dropShadowColor = dropShadowColor
+        self.dropShadowBlur = dropShadowBlur
     }
     
     public init(formSize: CGSize){
