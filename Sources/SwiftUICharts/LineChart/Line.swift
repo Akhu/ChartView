@@ -90,10 +90,6 @@ public struct Line: View {
         }
     }
     
-//    public init(data: ChartData, frame: CGRect, touchLocation: CGPoint, showIndicator: Bool ) {
-//
-//    }
-    
     func getClosestPointOnPath(touchLocation: CGPoint) -> CGPoint {
         let closest = self.path.point(to: touchLocation.x)
         return closest
@@ -105,12 +101,12 @@ public struct Line: View {
 struct Line_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader{ geometry in
-            Line(data: ChartData(points: [12,-230,10,54]),
+            Line(data: ChartData(points: [40,22,49,18,23]),
                  frame: .constant(geometry.frame(in: .local)),
                  touchLocation: .constant(CGPoint(x: 100, y: 12)),
                  showIndicator: .constant(false),
                  minDataValue: .constant(0),
-                 maxDataValue: .constant(60))
-        }.frame(width: 120, height: 160)
+                 maxDataValue: .constant(100))
+        }.frame(width: 250, height: 250)
     }
 }

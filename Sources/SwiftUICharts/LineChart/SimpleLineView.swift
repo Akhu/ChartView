@@ -56,21 +56,10 @@ public struct SimpleLineView: View {
                              showBackground: true,
                              gradient: self.style.gradientColor
                         )
-                        .offset(x: 0, y: 0)
-                        .onAppear(){
-                            self.showLegend = false
-                        }
-                        .onDisappear(){
-                            self.showLegend = false
-                        }
                     }
-                    .frame(width: geometry.frame(in: .local).size.width, height: 240)
-                    .offset(x: 0, y: 40 )
-                    MagnifierRect(currentNumber: self.$currentDataNumber, valueSpecifier: self.valueSpecifier)
-                        .opacity(self.opacity)
-                        .offset(x: self.dragLocation.x - geometry.frame(in: .local).size.width/2, y: 36)
+                    .frame(width: geometry.frame(in: .local).size.width, height: geometry.frame(in: .local).size.height)
                 }
-                .frame(width: geometry.frame(in: .local).size.width, height: 240)
+                .frame(width: geometry.frame(in: .local).size.width, height: geometry.frame(in: .local).height)
                 .gesture(DragGesture()
                 .onChanged({ value in
                     self.dragLocation = value.location
@@ -110,9 +99,11 @@ struct SimpleLineView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SimpleLineView(data: [20,20,20,20,23], style: ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.green, textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0)))
-            
-            SimpleLineView(data: [282.502, 284.495, 283.51, 285.019, 285.197, 286.118, 288.737, 288.455, 289.391, 287.691, 285.878, 286.46, 286.252, 284.652, 284.129, 284.188], title: "Full chart", style: Styles.lineChartStyleOne)
+            SimpleLineView(data: [40,22,49,18,23], style: ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.green, textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0)),
+                           minDataValue: 0,
+                           maxDataValue: 50.0
+                           )
+                .frame(width: 150, height: 150)
             
         }
     }
