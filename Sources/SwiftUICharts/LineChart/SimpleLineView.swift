@@ -51,8 +51,8 @@ public struct SimpleLineView: View {
                              frame: .constant(CGRect(x: 0, y: 0, width: reader.frame(in: .local).width, height: reader.frame(in: .local).height)),
                              touchLocation: self.$indicatorLocation,
                              showIndicator: self.$hideHorizontalLines,
-                             minDataValue: minDataValue,
-                             maxDataValue: maxDataValue,
+                             minDataValue: self.$minDataValue,
+                             maxDataValue: self.$maxDataValue,
                              showBackground: true,
                              gradient: self.style.gradientColor
                         )
@@ -104,7 +104,7 @@ public struct SimpleLineView: View {
 
 struct SimpleLineView_Previews: PreviewProvider {
     
-    var chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: Color.red, end: Color.green), textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0))
+    var chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: Color.red, end: Color.green), textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0),cornerRadius: 5, dropShadowBlur: 2)
     
     
     

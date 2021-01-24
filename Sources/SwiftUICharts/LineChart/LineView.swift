@@ -121,7 +121,7 @@ public struct LineView: View {
 
 struct LineView_Previews: PreviewProvider {
     
-    var chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: Color.red, end: Color.green), textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0))
+    var chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color.blue, gradientColor: GradientColor(start: Color.red, end: Color.green), textColor: Color.black, legendTextColor: Color.white, dropShadowColor: Color.black.opacity(0), cornerRadius: 2, dropShadowBlur: 2)
     
     
     

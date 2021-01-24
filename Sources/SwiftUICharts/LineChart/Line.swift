@@ -99,6 +99,7 @@ public struct Line: View {
         return closest
     }
     
+    
 }
 
 struct Line_Previews: PreviewProvider {

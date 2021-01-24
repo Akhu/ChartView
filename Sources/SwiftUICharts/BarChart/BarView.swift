@@ -137,7 +137,7 @@ public struct BarView : View {
 }
 
 #if DEBUG
-var style = ChartStyle(backgroundColor: Color.black.opacity(0.8), accentColor: Color.red, gradientColor: GradientColors.blu, textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: Color.black.opacity(0.1), cornerRadius: 10)
+var style = ChartStyle(backgroundColor: Color.black.opacity(0.8), accentColor: Color.red, gradientColor: GradientColors.blu, textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: Color.black.opacity(0.1), cornerRadius: 10, dropShadowBlur: 2)
 
 struct BarChart_Previews : PreviewProvider {
     
